@@ -1,0 +1,25 @@
+{
+    "name": "msr3dp",
+    "feature_encoder": "ccmr",
+    "context_encoder": "basic",
+    "context_encoder_dim": [192, 256, 320, 384, 512],
+    "corr": "on_demand",
+    "corr_levels": 2,
+    "corr_radius": 4,
+    "update_operator": "bilaplacian",
+    "iterations": [4, 5, 5, 6],
+    "se3_neighborhood": 64,
+    "se3_lm": 0.0004,
+    "adamw_eps": 1e-8,
+    "gpus": [0, 1, 2],
+    "train": {
+        "num_steps": [200000],
+        "lr": [0.0002],
+        "dataset": ["things"],
+        "batch_size": [3],
+        "image_size": [[368, 768]],
+        "wdecay": [0.00001],
+        "gamma": [0.8],
+        "loss_fn": ["l1"]
+    }
+}
