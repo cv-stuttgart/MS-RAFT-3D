@@ -3,7 +3,7 @@
 ## Installation
 
 ### Packages
-We use CUDA version 11.3. and PyTorch version 1.12.1 installing the packages
+We use CUDA version 11.3. and PyTorch version 1.12.1. The following packages are required:
 ```
 numpy
 torch
@@ -15,24 +15,25 @@ matplotlib
 tqdm
 ```
 
-Additionally we install
+Additionally we install lietorch and flow_library:
 ```bash
-pip install git+https://github.com/jasc7636/lietorch.git@b59f04a63f2a5c8205191043659c14139588d578
+pip install git+https://github.com/princeton-vl/lietorch.git
 
 git clone git@github.com:cv-stuttgart/flow_library.git
 cd flow_library
 pip install -r requirements.txt
 ```
-and add the ```flow_library``` path to the ```PYTHONPATH``` environment variable.
+and add the flow_library path to the ```PYTHONPATH``` environment variable.
 
 ### On-Demand Cost Volume
-In order to save GPU VRAM, the on-demand cost volume can be used. Running
+In order to save GPU VRAM, the on-demand cost volume can be used. It can be installed by running
 ```
 python setup.py install
 ```
-in the ```alt_cuda_corr``` folder installs it.
+in the alt_cuda_corr directory.
 
 ## Datasets
+We use the FlyingThings3D, KITTI 2015, and Spring datasets.
 The dataset location can be set with the environment variables ```DATASETS_SCENEFLOW_ROOT```, ```DATASETS_KITTI_ROOT```, ```DATASETS_KITTI_DISP_TRAIN```, ```DATASETS_KITTI_DISP_TEST```, ```DATASETS_SPRING_ROOT``` and ```DATASETS_SPRING_DISP```. The expected folder layout is the following:
 ```
 DATASETS_SCENEFLOW_ROOT
@@ -117,7 +118,7 @@ The environment variable ```DATASETS_SCENEFLOW_TEST_FILE``` should contain the p
 ## Usage
 
 The network settings and training process is controlled with a JSON file.
-Examples can be found in the ```config``` directory.
+Examples can be found in the config directory.
 
 #### Training
 ```bash
@@ -125,7 +126,9 @@ Examples can be found in the ```config``` directory.
 python3 scripts/train.py --config=config/3-scale_things.json --save=/checkpoint/folder
 
 # Fine-tuning
+# KITTI
 python3 scripts/train.py --config=config/3-scale_kitti.json --save=/checkpoint/folder --ckpt=/path/to/checkpoint
+# Spring
 python3 scripts/train.py --config=config/3-scale_spring.json --save=/checkpoint/folder --ckpt=/path/to/checkpoint
 ```
 
@@ -138,7 +141,6 @@ python3 scripts/evaluation.py --config=config/3-scale_things.json --model=/path/
 ```bash
 # KITTI
 python3 scripts/kitti_submission.py --config=config/3-scale_things.json --model=/path/to/checkpoint
-
 # Spring
 python3 scripts/spring_submission.py --config=config/3-scale_things.json --model=/path/to/checkpoint
 ```
