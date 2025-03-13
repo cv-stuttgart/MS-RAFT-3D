@@ -14,9 +14,9 @@ def set_to_zero(vec, mask):
     return vec
 
 def l1_loss(flow_est, flow_rev, dz_est, flow_gt, dz_gt, valid_mask):
-    loss = torch.mean(set_to_zero((flow_est - flow_gt).abs()), valid_mask)
-    loss += RV_WEIGHT * torch.mean(set_to_zero((flow_rev - flow_gt).abs()), valid_mask)
-    loss += DZ_WEIGHT * torch.mean(set_to_zero((dz_est - dz_gt).abs()), valid_mask)
+    loss = torch.mean(set_to_zero((flow_est - flow_gt).abs(), valid_mask))
+    loss += RV_WEIGHT * torch.mean(set_to_zero((flow_rev - flow_gt).abs(), valid_mask))
+    loss += DZ_WEIGHT * torch.mean(set_to_zero((dz_est - dz_gt).abs(), valid_mask))
     return loss
 
 def l2_loss(flow_est, flow_rev, dz_est, flow_gt, dz_gt, valid_mask):

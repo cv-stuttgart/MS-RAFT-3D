@@ -97,7 +97,7 @@ def train_phase(dataloader, model, optimizer, scheduler, phase, logger, config, 
         total_steps = config["initial_step"]
 
     if config["train"]["loss_fn"][phase] == "l1":
-        loss_fn = l2_loss
+        loss_fn = l1_loss
     elif config["train"]["loss_fn"][phase] == "l2":
         loss_fn = l2_loss
     elif config["train"]["loss_fn"][phase] == "samplewise_l1":
