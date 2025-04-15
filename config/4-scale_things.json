@@ -20,6 +20,6 @@
         "image_size": [[368, 768]],
         "wdecay": [0.00001],
         "gamma": [0.8],
-        "loss_fn": ["l1"]
+        "loss_fn": ["l2"]
     }
 }
