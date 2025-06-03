@@ -1,5 +1,9 @@
 # MS-RAFT-3D
+[ICIP 2025] This is the inference code of our `MS-RAFT-3D` scene flow estimation method.
 
+ **[MS-RAFT-3D: A Multi-scale Architecture for Recurrent Image-based Scene Flow](https://arxiv.org/pdf/2506.01443)**<br/>
+> _ICIP 2025_ <br/>
+> Jakob Schmid, Azin Jahedi, Noah Berenguel Senn and Andrés Bruhn
 ## Installation
 
 ### Packages
