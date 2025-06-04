@@ -149,5 +149,8 @@ python3 scripts/kitti_submission.py --config=config/3-scale_things.json --model=
 python3 scripts/spring_submission.py --config=config/3-scale_things.json --model=/path/to/checkpoint
 ```
 
+## License
+- Our code is licensed under the BSD 3-Clause **No Military** License. See [LICENSE](LICENSE).
+- The provided checkpoints are under the [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/) license.
 ## Acknowledgement
 Parts of the repository are adapted from [RAFT-3D](https://github.com/princeton-vl/RAFT-3D/) and [CCMR](https://github.com/cv-stuttgart/CCMR). We thank the authors.
